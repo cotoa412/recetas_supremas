@@ -1,0 +1,25 @@
+{
+  "name": "recetas_supremas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shamuel/recetas_supremas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shamuel/recetas_supremas/issues"
+  },
+  "homepage": "https://github.com/Shamuel/recetas_supremas#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.17"
+  }
+}
