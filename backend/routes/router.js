@@ -7,7 +7,7 @@ router.get('/', function(req, res) {
     });
 });
 
-const commentsController = require('./commentsController');
+const commentsController = require('../controllers/commentsController');
 router.route('/comment')
     .get(commentsController.index)
     .post(commentsController.add);

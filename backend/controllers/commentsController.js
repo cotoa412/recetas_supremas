@@ -1,5 +1,5 @@
-//Import Bio Model
-Comment = require('./commentsModel');
+//Import comment Model
+Comment = require('../models/commentsModel');
 //For index
 exports.index = function (req, res) {
     Comment.get(function (err, comment) {
@@ -15,63 +15,63 @@ exports.index = function (req, res) {
         });
     });
 };
-//For creating new bio
+//For creating new comment
 exports.add = function (req, res) {
     var comment = new Comment();
-    bio.text = req.body.name? req.body.name: bio.name;
-    bio.username = req.body.email;
-    bio.created_at = req.body.phone;
+    comment.text = req.body.name? req.body.name: comment.name;
+    comment.username = req.body.email;
+    comment.created_at = req.body.phone;
 //Save and check error
-    bio.save(function (err) {
+    comment.save(function (err) {
         if (err)
             res.json(err);
 res.json({
-            message: "New Bio Added!",
-            data: bio
+            message: "New comment Added!",
+            data: comment
         });
     });
 };
-// View Bio
+// View comment
 exports.view = function (req, res) {
-    Bio.findById(req.params.bio_id, function (err, bio) {
+    comment.findById(req.params.comment_id, function (err, comment) {
         if (err)
             res.send(err);
         res.json({
-            message: 'Bio Details',
-            data: bio
+            message: 'comment Details',
+            data: comment
         });
     });
 };
-// Update Bio
+// Update comment
 exports.update = function (req, res) {
-    Bio.findById(req.params.bio_id, function (err, bio) {
+    comment.findById(req.params.comment_id, function (err, comment) {
         if (err)
             res.send(err);
-        bio.name = req.body.name ? req.body.name : bio.name;
-        bio.email = req.body.email;
-        bio.phone = req.body.phone;
-        bio.address = req.body.address;
+        comment.name = req.body.name ? req.body.name : comment.name;
+        comment.email = req.body.email;
+        comment.phone = req.body.phone;
+        comment.address = req.body.address;
 //save and check errors
-        bio.save(function (err) {
+        comment.save(function (err) {
             if (err)
                 res.json(err)
             res.json({
-                message: "Bio Updated Successfully",
-                data: bio
+                message: "comment Updated Successfully",
+                data: comment
             });
         });
     });
 };
-// Delete Bio
+// Delete comment
 exports.delete = function (req, res) {
-    Bio.deleteOne({
-        _id: req.params.bio_id
+    comment.deleteOne({
+        _id: req.params.comment_id
     }, function (err, contact) {
         if (err)
             res.send(err)
         res.json({
             status: "success",
-            message: 'Bio Deleted'
+            message: 'comment Deleted'
         })
     })
 }
