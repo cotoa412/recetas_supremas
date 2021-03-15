@@ -1,29 +1,33 @@
 {
   "name": "recetas_supremas",
   "version": "1.0.0",
-  "description": "",
+  "description": "COCINA MUNDIAL",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon -r dotenv/config backend/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -r dotenv/config server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Shamuel/recetas_supremas.git"
   },
-  "author": "",
+  "keywords": [
+    "lets",
+    "cook"
+  ],
+  "author": "Shamuel Simpson -- Andres Coto",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Shamuel/recetas_supremas/issues"
   },
   "homepage": "https://github.com/Shamuel/recetas_supremas#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.11.17"
+    "mongoose": "^5.12.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
-    "nodemon": "^2.0.7"
+    "dotenv": "^8.2.0"
   }
 }
