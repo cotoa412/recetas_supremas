@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const userRoutes = require('./api/routes/users');
 const postRoutes = require('./api/routes/posts');
@@ -8,6 +9,10 @@ const commentRoutes = require('./api/routes/comments');
 
 //Log for requests
 app.use(morgan('dev'));
+
+//parsing data
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 
 //CORS
 app.use((req, res, next) => {
