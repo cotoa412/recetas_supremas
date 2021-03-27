@@ -2,6 +2,33 @@ const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
 const Post = require('../models/post');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb){
+        cb(null, './uploads/');
+    },
+    filename: function(req, file, cb){
+        cb(null, file.originalname);
+    }
+});
+
+const fileFilter = (req, file, cb) => {
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
+        cb(null, true)
+    } else {
+        cb(null, false)
+    }
+};
+
+const upload = multer({
+    storage: storage, 
+    limits: {
+        fileSize: 1024 * 1024 * 3
+        },
+    fileFilter: fileFilter
+    });
+
 
 router.get('/',(req, res, next) => {
     Post.find()
@@ -17,12 +44,13 @@ router.get('/',(req, res, next) => {
         });
     });
 });
-router.post('/',(req, res, next) => {
+router.post('/', upload.single('postImage'), (req, res, next) => {
     const post = new Post({
         _id: new mongoose.Types.ObjectId(),
         recipe_name: req.body.recipe_name,
         description: req.body.description,
-        tips: req.body.tips
+        tips: req.body.tips,
+        postImage: req.file.path
     });
     post
     .save()

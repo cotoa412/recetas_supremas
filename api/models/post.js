@@ -5,6 +5,7 @@ const postSchema = mongoose.Schema({
     recipe_name: String,
     description: String,
     tips: String,
+    postImage: String,
 });
 
 module.exports = mongoose.model('Post', postSchema);
