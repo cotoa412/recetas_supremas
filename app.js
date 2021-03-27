@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 });
 
 //DB
-const uri = 'mongodb+srv://Andres:6LRbwzQb6VHEC0KP@cluster0.hzxmp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://' + process.env.USERNAME + ':' +process.env.PASSWORD+'@cluster0.hzxmp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true
