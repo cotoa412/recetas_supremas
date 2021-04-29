@@ -134,6 +134,36 @@ router.patch('/:userId',(req, res, next) => {
         });
     });
 });
+router.patch('/post/:userId',(req, res, next) => {
+    User.updateOne(
+        { _id: req.params.userId },
+        { $push: { postCount: [req.body.post] } },
+        function(err, result) {
+          if (err) {
+            res.send(err);
+          } else {
+            res.send(result);
+          }
+        }
+      );
+    // const id = req.params.userId;
+    // const  = {};
+    // for(const ops of req.body){
+    //     updateOps[ops.propName] = ops.value;
+    // }
+    // User.update({_id: id}, { $set: updateOps })
+    // .exec()
+    // .then(result => {
+    //     console.log(result);
+    //     res.status(200).json(result);
+    // })
+    // .catch(err => {
+    //     console.log(err);
+    //     res.status(500).json({
+    //     error: err
+    //     });
+    // });
+});
 router.delete('/:userId',(req, res, next) => {
     const id = req.params.userId;
     User.remove({_id: id})
