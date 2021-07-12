@@ -24,4 +24,9 @@ Example of a DELETE request:
 
 3. It's basically the same with all the endpoints
 
-This is it. Playaround and try to break it :rofl: 
+#### Tecnologies used:
+- NodeJS
+- Maven
+- Express
+- MongoDB
+- Postman
